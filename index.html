@@ -17,35 +17,42 @@
       user-select: none;
       touch-action: manipulation;
     }
+
+    .circle {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 8px solid rgba(255,255,255,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 -8px 24px rgba(255,255,255,0.02);
+      transition: transform .08s ease, box-shadow .08s ease;
+      outline: none;
+    }
+    .circle:active { transform: scale(.98); }
+    .circle:focus { box-shadow: 0 8px 28px rgba(0,0,0,0.7), 0 0 0 6px rgba(255,255,255,0.03); }
+
     #timer {
-      font-size: 10rem;
+      font-size: 6rem;
       font-weight: bold;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    @media (max-width: 400px) {
+      .circle { width: 160px; height: 160px; border-width: 6px; }
+      #timer { font-size: 4rem; }
     }
   </style>
 </head>
 <body>
 
-<div id="timer">5</div>
+<div class="circle" id="circle" tabindex="0">
+  <div id="timer">5</div>
+</div>
 
-<script>
-  let time = 5;
-  const timerElement = document.getElementById("timer");
-
-  function resetTimer() {
-    time = 5;
-    timerElement.textContent = time;
-  }
-
-  document.body.addEventListener("click", resetTimer);
-  document.body.addEventListener("touchstart", resetTimer);
-
-  setInterval(() => {
-    if (time > 0) {
-      time--;
-      timerElement.textContent = time;
-    }
-  }, 1000);
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
