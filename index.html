@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Auktions-Timer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    #timer {
+      font-size: 10rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="timer">5</div>
+
+<script>
+  let time = 5;
+  const timerElement = document.getElementById("timer");
+
+  function resetTimer() {
+    time = 5;
+    timerElement.textContent = time;
+  }
+
+  document.body.addEventListener("click", resetTimer);
+  document.body.addEventListener("touchstart", resetTimer);
+
+  setInterval(() => {
+    if (time > 0) {
+      time--;
+      timerElement.textContent = time;
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
