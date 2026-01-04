@@ -1,5 +1,5 @@
 // ...existing code...
-let time = 5;
+let time = 10;
 const timerElement = document.getElementById("timer");
 const circle = document.getElementById("circle");
 const ding = new Audio("sounds/Ding.mp3");
@@ -21,7 +21,7 @@ function updateDisplay() {
 }
 
 function resetTimer() {
-  time = 5;
+  time = 10;
   updateDisplay();
 }
 
